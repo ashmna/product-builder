@@ -1,15 +1,18 @@
-function Context()
-{
-    var  that = this
-        ,tagElements = $('.elements')
+function Context() {
+  var that = this
+    , mainContext = $('.main')
+    , canvasContext = mainContext.find('.canvas')
     ;
-    
-    that.append = function(element) {
-        tagElements.append(element);
-    };
-    
-    that.detach = function(elementObj) {
-        tagElements.remove(element);
-    };
-    
+
+  that.getContext = function () {
+    return mainContext;
+  };
+
+  that.getCanvasContext = function () {
+    return canvasContext;
+  };
+
+  // Constructor
+
+
 }

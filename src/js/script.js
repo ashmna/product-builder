@@ -1,21 +1,51 @@
 $(function(){
-    
-    var context = new Context();
-    var broker = new Broker(context);
-    
-//    var element = new Element(broker, {})
-    
-    var el = {
-                "position": {
-                    "t": 10,
-                    "l": 10,
-                    "w": 100,
-                    "h": 50,
-                    "a": 0
-                },
-                "type": "____",
-                "params": {}
-            };
-    
-    var element = new Element(broker, el.position, el.params);
+
+  var war = {
+    "title": "Title",
+    "image": "src/img/1.png",
+    "container": {
+      "w": 450,
+      "h": 450,
+      "t": 10,
+      "l": 10
+    },
+    "elements": [
+      {
+        "position": {
+          "t": 10,
+          "l": 10,
+          "w": 100,
+          "h": 50,
+          "a": 0
+        },
+        "type": "____",
+        "params": {}
+      },
+      {
+        "position": {
+          "t": 180,
+          "l": 50,
+          "w": 100,
+          "h": 50,
+          "a": 0
+        },
+        "type": "____",
+        "params": {}
+      },
+      {
+        "position": {
+          "t": 50,
+          "l": 180,
+          "w": 92,
+          "h": 92,
+          "a": 0
+        },
+        "type": "____",
+        "params": {}
+      }
+    ]
+  };
+  var context = new Context();
+  var productBroker = new ProductBroker(context.getCanvasContext(), [war]);
+
 });

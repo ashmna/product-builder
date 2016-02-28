@@ -6,15 +6,21 @@ html, body {
 .main {
     position: relative;
     background: url(../img/bg_pattern3.png);
+    /*z-index: -1;*/
     width: 100%;
     height: 100%;
 }
 
 .tool-top,
 .tool-footer {
-    background: rgb(236,236,236);
+    /*background: rgb(236,236,236);*/
     width: 100%;
 }
+
+.tool-footer {
+    margin-top: -150px;
+}
+
 
 .tool-left {
     position: relative;
@@ -45,23 +51,17 @@ html, body {
 .product .border {
     position: absolute;
     border: 1px solid #aaa;
-    
-    /*demo*/
-    left: 10px;
-    top: 10px;
-    width: 350px;
-    height: 350px;
 }
 .product .elements {
     position: relative;
 }
 
-.product-background {
+.product .product-background {
     position: absolute;
     display: block;
 }
 
-.product-background-image {
+.product  .product-background-image {
     display: block;
 }
 
@@ -124,18 +124,22 @@ html, body {
 .helper-move {
     top: -18px;
     left: -18px;
+    cursor: move;
 }
 .helper-rotate {
     top: -18px;
     right: -18px;
+    cursor: move;
 }
 .helper-remove {
     bottom: -18px;
     left: -18px;
+    cursor: pointer;
 }
 .helper-resize {
     bottom: -18px;
     right: -18px;
+    cursor: se-resize;
 }
 
 /* tool footer */
@@ -153,7 +157,7 @@ html, body {
     margin: auto auto;
     width: 92px;
     height: 92px;
-    border: 4px solid #CCCCCC;
+    border: 4px solid #CCC;
     border-radius: 10px;
 }
 .thumb-title {
