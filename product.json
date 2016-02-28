@@ -1,0 +1,27 @@
+{
+    "war": [
+
+        {
+            "title": "Title",
+            "background": "path/to.img",
+            "contanner": {
+                "w": 150,
+                "h": 150,
+                "t": 10,
+                "l": 10
+            },
+            "elemest": [{
+                "position": {
+                    "t": 10,
+                    "l": 10,
+                    "w": 100,
+                    "h": 50,
+                    "a": 0
+                },
+                "type": "____",
+                "params": {}
+            }]
+        }
+
+    ]
+}

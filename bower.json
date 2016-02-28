@@ -1,0 +1,9 @@
+{
+  "name": "product-builder",
+  "dependencies": {
+    "jquery": "*",
+    "jquery-ui": "*",
+    "jquery-ui-rotatable": "*",
+    "font-awesome": "fontawesome#^4.5.0"
+  }
+}
