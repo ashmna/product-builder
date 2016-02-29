@@ -1,11 +1,28 @@
-function ProductBroker(context, war) {
+function ProductBroker(cxt, war) {
   var that = this;
+  that.currentActiveProduct = null;
   that.list = [];
 
   // Public Methods
 
   that.append = function (productObj) {
-    context.append(productObj.getContext());
+    cxt.getCanvasContext().append(productObj.getContext());
+    cxt.getThumbsContext().append(productObj.getThumbContext());
+  };
+
+  that.activate = function (productObj) {
+    if (that.currentActiveProduct != productObj) {
+      if (that.currentActiveProduct) {
+        that.currentActiveProduct.deactivate();
+        that.currentActiveProduct.getContext().fadeOut(Effects.fastSpeed, Effects.easing, function(){
+          productObj.getContext().fadeIn(Effects.fastSpeed, Effects.easing);
+        });
+      } else {
+        productObj.getContext().fadeIn(Effects.fastSpeed, Effects.easing);
+      }
+      that.currentActiveProduct = productObj;
+      productObj.activate();
+    }
   };
 
   // Private Methods

@@ -16,7 +16,9 @@ function ElementBroker(context, borderContext, elements) {
     if(that.list.indexOf(elementObj) != -1) {
       that.list.splice(that.list.indexOf(elementObj), 1);
     }
-    elementObj.getContext().remove();
+    elementObj.getContext().fadeOut(Effects.fastSpeed, Effects.easing, function () {
+      elementObj.getContext().remove();
+    });
   };
 
   that.activate = function (elementObj) {

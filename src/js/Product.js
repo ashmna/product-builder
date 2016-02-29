@@ -6,6 +6,7 @@ function Product(broker, data) {
   that.container = data.container;
   that.context = null;
   that.elementsContext = null;
+  that.thumbContext = null;
   that.borderContext = null;
 
 
@@ -19,20 +20,38 @@ function Product(broker, data) {
     return that.elementsContext;
   };
 
+  that.getThumbContext = function () {
+    return that.thumbContext;
+  };
+
   that.getBorderContext = function () {
     return that.borderContext;
+  };
+
+  that.activate = function () {
+    that.thumbContext.addClass('active');
+  };
+
+  that.deactivate = function () {
+    that.thumbContext.removeClass('active');
   };
 
   // Private Methods
 
   function initProductContext() {
     that.context = $('\
-      <div class="product">\
+      <div class="product" style="display: none">\
         <div class="product-background">\
           <img class="product-background-image" src="'+that.image+'">\
         </div>\
         <div class="border elements"></div>\
       </div>');
+    that.thumbContext = $('\
+      <li>\
+        <div class="product-thumb-viewer"></div>\
+        <div class="view-name">'+that.title+'</div>\
+      </li>');
+
     that.elementsContext = that.context.find('.elements');
     that.borderContext = that.context.find('.border');
     that.borderContext.css({
@@ -40,6 +59,9 @@ function Product(broker, data) {
       height : that.container.h,
       top    : that.container.t,
       left   : that.container.l
+    });
+    that.thumbContext.click(function(){
+      that.broker.activate(that);
     });
   }
 
