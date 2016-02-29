@@ -1,5 +1,5 @@
 .tool-footer {
-    margin-top: -100px;
+    margin-top: -80px;
     text-align: center;
     display: inline-block;
 }
@@ -7,6 +7,8 @@
 .tool-footer ul {
     display: inline-block;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 
