@@ -43,29 +43,27 @@ function Element(broker, borderContext, position, params) {
   // Private Methods
 
   function initElement() {
+    var p = that.position;
     that.context = $('\
-      <div class="element">\
-         <div class="target">\
-            <div class="helper-move"  > <em class="fa fa-arrows"></em>                    </div>\
-            <div class="helper-rotate"> <em class="fa fa-undo"></em>                      </div>\
-            <div class="helper-remove"> <em class="fa fa-trash"></em>                     </div>\
-            <div class="helper-resize"> <em class="fa fa-expand fa-flip-horizontal"></em> </div>\
-        </div>\
-      </div>')
-      .css({
-        left: that.position.l,
-        top: that.position.t,
-        width: that.position.w,
-        height: that.position.h
-      });
-    that.target = that.context.find('.target');
-    that.target.css({
-      width: that.position.w,
-      height: that.position.h
-    });
-    that.target.mousedown(function(){
-      that.broker.activate(that);
-    });
+      <rect x="'+p.x+'" y="'+ p.y+'" width="'+p.w+'" height="'+p.h+'" class="element" style="fill:transparent;stroke-width:1;stroke:rgb(0,0,0)"></rect>\
+      ');
+      /*
+       <div class="target">\
+       <div class="helper-move"  > <em class="fa fa-arrows"></em>                    </div>\
+       <div class="helper-rotate"> <em class="fa fa-undo"></em>                      </div>\
+       <div class="helper-remove"> <em class="fa fa-trash"></em>                     </div>\
+       <div class="helper-resize"> <em class="fa fa-expand fa-flip-horizontal"></em> </div>\
+       </div>\
+       */
+
+    //that.target = that.context.find('.target');
+    //that.target.css({
+    //  width: that.position.w,
+    //  height: that.position.h
+    //});
+    //that.target.mousedown(function(){
+    //  that.broker.activate(that);
+    //});
   }
 
   function initDraggable() {
@@ -109,10 +107,10 @@ function Element(broker, borderContext, position, params) {
   // Constructor
 
   initElement();
-  initResizable();
-  initRotatable();
-  initDraggable();
-  initDeletable();
+  //initResizable();
+  //initRotatable();
+  //initDraggable();
+  //initDeletable();
   that.init();
   that.broker.append(that);
 }

@@ -39,13 +39,18 @@ function Product(broker, data) {
   // Private Methods
 
   function initProductContext() {
+    //that.context = $('\
+    //  <div class="product" style="display: none">\
+    //    <div class="product-background">\
+    //      <img class="product-background-image" src="'+that.image+'">\
+    //    </div>\
+    //    <div class="border elements"></div>\
+    //  </div>');
     that.context = $('\
-      <div class="product" style="display: none">\
-        <div class="product-background">\
-          <img class="product-background-image" src="'+that.image+'">\
-        </div>\
-        <div class="border elements"></div>\
-      </div>');
+      <svg width="500" height="500" style="border: 1px solid #000;">\
+      </svg>\
+      ');
+
     that.thumbContext = $('\
       <li>\
         <div class="product-thumb-viewer"></div>\
