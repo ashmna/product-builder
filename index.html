@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="src/css/thumbs.css">
+    <link rel="stylesheet" href="src/css/tool-left.css">
     <link rel="stylesheet" href="src/css/style.css">
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/jquery-ui-rotatable/jquery.ui.rotatable.js"></script>
+    <script src="src/js/svgElement.js"></script>
     <script src="src/js/Effects.js"></script>
     <script src="src/js/ElementBroker.js"></script>
     <script src="src/js/ProductBroker.js"></script>
@@ -24,29 +26,89 @@
 <div class="main">
 
 
-    <div class="tool-left"></div>
+    <div class="tool-left">
+
+        <ul>
+            <li>
+                <a>
+                    <span class="icon">
+                        <em class="fa fa-recycle"></em>
+                    </span>
+                    <span class="label">
+                        Choose a product
+                    </span>
+                </a>
+            </li>
+
+
+            <li>
+                <a>
+                    <span class="icon">
+                        <em class="fa fa-recycle"></em>
+                    </span>
+                    <span class="label">
+                        Choose a product
+                    </span>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <span class="icon">
+                        <em class="fa fa-recycle"></em>
+                    </span>
+                    <span class="label">
+                        Choose a product
+                    </span>
+                </a>
+            </li>
+
+
+            <li>
+                <a>
+                    <span class="icon">
+                        <em class="fa fa-recycle"></em>
+                    </span>
+                    <span class="label">
+                        Choose a product
+                    </span>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <span class="icon">
+                        <em class="fa fa-recycle"></em>
+                    </span>
+                    <span class="label">
+                        Choose a product
+                    </span>
+                </a>
+            </li>
+
+        </ul>
+
+
+    </div>
     <div class="tool-right"></div>
 
     <div class="canvas">
-        <svg width="500" height="500" style="border: 1px solid #000;">
-            <rect x="10" y="10" height="150" width="150" style="fill:transparent;stroke-width:1;stroke:rgb(0,0,0)"></rect>
-        </svg>
 
-<!--
+        <!--
 
-        <div class="product">
+                <div class="product">
 
-            <div class="product-background">
-                <img class="product-background-image" src="src/img/1.png">
-            </div>
+                    <div class="product-background">
+                        <img class="product-background-image" src="src/img/1.png">
+                    </div>
 
-            <div class="border elements">
+                    <div class="border elements">
 
-            </div>
+                    </div>
 
-        </div>
+                </div>
 
--->
+        -->
 
     </div>
 
@@ -59,121 +121,121 @@
     </ul>
 
 
-  <!--  <a class="appearance-button" href="javascript:void(0);"><span class="round-btn"><div
-            class="icon appearance-color appearance-1" title="white">
-        <div>
-            <div style="width: 100%; background-color: rgb(255, 255, 255);"></div>
-        </div>
-    </div></span><span class="label">Product color</span>
-        <div class="appearance-selector btn-group menu-button"><a class="dropdown-toggle btn"
-                                                                  href="javascript:void(0);"><span> </span><span
-                class="caret"></span></a>
-            <div name="menu" class="dropdown-menu">
-                <div class="simple-horizontal-color-picker">
-                    <div class="simple-horizontal-color-picker-container">
-                        <ul class="simple-horizontal-color-picker-list">
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-387"
-                                     title="noble brown">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(70, 60, 38);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-506" title="purple">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(100, 49, 112);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-92"
-                                     title="kelly green">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(30, 150, 88);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-146"
-                                     title="light blue">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(183, 211, 221);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-231"
-                                     title="heather gray">
-                                    <div>
-                                        <div style="width: 100%; background-image: url(&quot;//image3.spreadshirtmedia.com/image-server/v1/appearances/231?mediaType=webp&quot;);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-317"
-                                     title="royal blue">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(58, 61, 135);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-339" title="asphalt">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(109, 104, 96);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-348" title="navy">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(53, 61, 86);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-366" title="red">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(194, 3, 41);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="active" style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-1" title="white">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(255, 255, 255);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-2" title="black">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(0, 0, 0);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 20px;">
-                                <div class="appearance-color-preview appearance-color appearance-39" title="sun yellow">
-                                    <div>
-                                        <div style="width: 100%; background-color: rgb(246, 188, 26);"></div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="simple-horizontal-color-picker-zoom" style="position: absolute; left: 190px;"><span
-                            class="round-btn"><div class="icon appearance-color appearance-1" title="white">
-                        <div>
-                            <div style="width: 100%; background-color: rgb(255, 255, 255);"></div>
-                        </div>
-                    </div></span><span class="label">white</span></div>
-                </div>
-            </div>
-        </div>
-    </a>
--->
+    <!--  <a class="appearance-button" href="javascript:void(0);"><span class="round-btn"><div
+              class="icon appearance-color appearance-1" title="white">
+          <div>
+              <div style="width: 100%; background-color: rgb(255, 255, 255);"></div>
+          </div>
+      </div></span><span class="label">Product color</span>
+          <div class="appearance-selector btn-group menu-button"><a class="dropdown-toggle btn"
+                                                                    href="javascript:void(0);"><span> </span><span
+                  class="caret"></span></a>
+              <div name="menu" class="dropdown-menu">
+                  <div class="simple-horizontal-color-picker">
+                      <div class="simple-horizontal-color-picker-container">
+                          <ul class="simple-horizontal-color-picker-list">
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-387"
+                                       title="noble brown">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(70, 60, 38);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-506" title="purple">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(100, 49, 112);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-92"
+                                       title="kelly green">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(30, 150, 88);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-146"
+                                       title="light blue">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(183, 211, 221);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-231"
+                                       title="heather gray">
+                                      <div>
+                                          <div style="width: 100%; background-image: url(&quot;//image3.spreadshirtmedia.com/image-server/v1/appearances/231?mediaType=webp&quot;);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-317"
+                                       title="royal blue">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(58, 61, 135);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-339" title="asphalt">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(109, 104, 96);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-348" title="navy">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(53, 61, 86);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-366" title="red">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(194, 3, 41);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li class="active" style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-1" title="white">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(255, 255, 255);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-2" title="black">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(0, 0, 0);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                              <li style="width: 20px;">
+                                  <div class="appearance-color-preview appearance-color appearance-39" title="sun yellow">
+                                      <div>
+                                          <div style="width: 100%; background-color: rgb(246, 188, 26);"></div>
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="simple-horizontal-color-picker-zoom" style="position: absolute; left: 190px;"><span
+                              class="round-btn"><div class="icon appearance-color appearance-1" title="white">
+                          <div>
+                              <div style="width: 100%; background-color: rgb(255, 255, 255);"></div>
+                          </div>
+                      </div></span><span class="label">white</span></div>
+                  </div>
+              </div>
+          </div>
+      </a>
+  -->
 </div>
 
 </body>

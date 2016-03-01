@@ -17,11 +17,6 @@ html, body {
     width: 100%;
 }
 
-.tool-left {
-    position: relative;
-    left: 0;
-    top: 0;
-}
 
 .tool-right {
     position: relative;
@@ -42,6 +37,9 @@ html, body {
 
 .product {
     position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
 }
 .product .border {
     position: absolute;
@@ -64,14 +62,7 @@ html, body {
 .element {
     display: block;
     position: absolute !important;
-}
-.element .target {
-    position: absolute;
     border: 1px dashed transparent;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 .helper-move,
@@ -111,7 +102,7 @@ html, body {
 .active .helper-resize {
     display: block;
 }
-.active .target {
+.active.element {
     border: 1px dashed #000;
 }
 

@@ -14,9 +14,9 @@ $(function(){
         "position": {
           "x": 10,
           "y": 10,
-          "w": 100,
-          "h": 50,
-          "a": 0
+          "height": 100,
+          "width": 100,
+          "a":0
         },
         "type": "____",
         "params": {}
