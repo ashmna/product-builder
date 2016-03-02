@@ -1,4 +1,5 @@
-function Product(broker, data) {
+function Product(broker, data)
+{
   var that = this;
   that.broker = broker;
   that.title = data.title;

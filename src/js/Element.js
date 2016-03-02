@@ -1,4 +1,5 @@
-function Element(broker, borderContext, position, params) {
+function Element(broker, borderContext, position, params)
+{
 
   var that = this
     , x = 0
@@ -40,6 +41,21 @@ function Element(broker, borderContext, position, params) {
 
   that.deactivate = function () {
     that.context.removeClass('active');
+  };
+
+  that.getCoordinates = function () {
+    var sin = Math.sin(that.position.angle)
+      , p = that.position
+      , deltaX = p.width/2  * sin
+      , deltaY = p.height/2 * sin
+      ;
+    console.log(deltaX, deltaY);
+    return {
+      tl : { x:           p.x + deltaX, y :            p.y - deltaY },
+      tr : { x: p.width + p.x - deltaX, y :            p.y + deltaY },
+      bl : { x:           p.x + deltaX, y : p.height + p.y - deltaY },
+      br : { x: p.width + p.x - deltaX, y : p.height + p.y + deltaY },
+    };
   };
 
   // Private Methods
@@ -90,19 +106,20 @@ function Element(broker, borderContext, position, params) {
 
   function initRotatable() {
     that.context.rotatable({
-      angle: that.position.a,
+      angle: that.position.angle,
       handle: that.context.find('.helper-rotate'),
-      stop: function () {
+      rotate: function (event, ui) {
+        that.position.angle = ui.angle.current;
       }
     });
     that.context.unbind('wheel');
   }
+
   function initDeletable() {
     that.context.find('.helper-remove').click(function(){
       that.broker.detach(that);
     });
   }
-
 
   // Constructor
 

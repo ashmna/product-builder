@@ -1,4 +1,5 @@
-function ProductBroker(cxt, war) {
+function ProductBroker(cxt, war)
+{
   var that = this;
   that.currentActiveProduct = null;
   that.list = [];

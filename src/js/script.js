@@ -16,7 +16,7 @@ $(function(){
           "y": 10,
           "height": 100,
           "width": 100,
-          "a":0
+          "angle":0
         },
         "type": "____",
         "params": {}
