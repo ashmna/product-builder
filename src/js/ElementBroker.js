@@ -39,13 +39,33 @@ function ElementBroker(context, borderContext, elements) {
     that.currentActiveElement = null;
   };
 
+  that.createNewElement = function(type) {
+    var position = {}
+      , params = {}
+      ;
+    return elementFactory(type, position, params);
+  };
+
   // Private Methods
 
   function initElements() {
-    var i = 0;
+    var i = 0, elementClass;
 
     for (; i < elements.length; ++i) {
-      new Element(that, borderContext, elements[i].position, elements[i].params);
+      elementFactory(elements[i].type, elements[i].position, elements[i].params);
+    }
+  }
+
+  function elementFactory(type, position, params) {
+    switch (type) {
+      case "Text Element" :
+        return new TextElement(that, borderContext, position, params);
+      case "Image Element" :
+        return new ImageElement(that, borderContext, position, params);
+      case "SVG Element" :
+        return new SvgElement(that, borderContext, position, params);
+      default:
+        return new Element(that, borderContext, position, params);
     }
   }
 

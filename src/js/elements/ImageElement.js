@@ -16,4 +16,4 @@ function ImageElement()
   //TODO Implement Image Element
 }
 
-ImageElement.prototype = Object.create(Element);
+ImageElement.prototype = Object.create(Element.prototype);

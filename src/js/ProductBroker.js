@@ -1,8 +1,10 @@
 function ProductBroker(cxt, war)
 {
-  var that = this;
+  var that = this
+    , idCounter = 1000;
   that.currentActiveProduct = null;
-  that.list = [];
+  that.currentActiveProductBroker = null;
+  that.list = {};
 
   // Public Methods
 
@@ -22,7 +24,14 @@ function ProductBroker(cxt, war)
         productObj.getContext().fadeIn(Effects.fastSpeed, Effects.easing);
       }
       that.currentActiveProduct = productObj;
+      that.currentActiveProductBroker = that.list[that.currentActiveProduct.id].broker;
       productObj.activate();
+    }
+  };
+
+  that.createNewElement = function(type) {
+    if(that.currentActiveProductBroker) {
+      that.currentActiveProductBroker.createNewElement(type);
     }
   };
 
@@ -34,15 +43,35 @@ function ProductBroker(cxt, war)
     for (; i < war.length; ++i) {
       product = new Product(that, war[i]);
       broker = new ElementBroker(product.getContext(), product.getBorderContext(), war[i].elements || []);
-      that.list.push({
+      product.id = broker.id = ++idCounter+"_el";
+      that.list[product.id] = {
         "product" : product,
         "broker"  : broker
-      });
+      }
     }
+  }
+
+  function initAutoDeactivate() {
+    $(document).click(function(event){
+      if( $(event.target).hasClass('element') || $(event.target).closest('.element').length) {
+      } else {
+        if(that.currentActiveProductBroker) {
+          that.currentActiveProductBroker.deactivate();
+        }
+      }
+    });
+  }
+
+  function initEvents() {
+    cxt.getButtonContext("text").click(function(){
+      that.createNewElement("Text Element");
+    });
   }
 
   // Constructor
 
   initProducts();
+  initAutoDeactivate();
+  initEvents();
 
 }

@@ -17,4 +17,4 @@ function SvgElement()
   //TODO Implement SVG Element
 }
 
-SvgElement.prototype = Object.create(Element);
+SvgElement.prototype = Object.create(Element.prototype);

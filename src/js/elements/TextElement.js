@@ -20,18 +20,18 @@ function TextElement()
   // Private Methods
 
   function initDefault() {
-    var defalut = {
-      "text"       : "Your Favorite Text Hear.",
-      "font-famil" : "sans-serif",
-      "font-size"  : "14px",
-      "color"      : "#000",
-      "text-align" : "center",
+    var defaultVal = {
+      "text"        : "Your Favorite Text Hear.",
+      "font-family" : "sans-serif",
+      "font-size"   : "14px",
+      "color"       : "#000",
+      "text-align"  : "center",
     };
-    for(var key in defalut) {
+    for(var key in defaultVal) {
       //noinspection JSUnfilteredForInLoop
       if(!that.params[key]) {
         //noinspection JSUnfilteredForInLoop
-        that.params[key] = defalut[key];
+        that.params[key] = defaultVal[key];
       }
     }
   }
@@ -51,4 +51,5 @@ function TextElement()
 
 }
 
-TextElement.prototype = Object.create(Element);
+TextElement.prototype = Object.create(Element.prototype);
+TextElement.prototype.constructor = Element;

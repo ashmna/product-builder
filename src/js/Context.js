@@ -17,6 +17,10 @@ function Context() {
     return thumbsContext;
   };
 
+  that.getButtonContext = function (type) {
+    return mainContext.find(".action-button-"+type);
+  };
+
   // Constructor
 
 
