@@ -1,5 +1,8 @@
 function SvgElement()
 {
+  // Extends
+  Element.apply(this, arguments);
+
   var that = this
     ;
   that.type = "SVG Element";
@@ -16,5 +19,3 @@ function SvgElement()
 
   //TODO Implement SVG Element
 }
-
-SvgElement.prototype = Object.create(Element.prototype);

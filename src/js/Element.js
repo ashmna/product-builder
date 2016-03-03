@@ -4,6 +4,7 @@ function Element(broker, borderContext, position, params)
     , x = 0
     , y = 0
     ;
+
   // Public Members
 
   that.type     = "Element";
@@ -12,6 +13,49 @@ function Element(broker, borderContext, position, params)
   that.params   = params;
   that.border   = borderContext;
   that.context  = null;
+
+  // Public Methods
+
+  that.init = function () {};
+
+  that.getContext = function () {
+    return that.context;
+  };
+
+  that.getData = function () {
+    return {
+      "position": that.position,
+      "type": that.type,
+      "params": that.params
+    }
+  };
+
+  that.remove = function () {
+    that.broker.detach(that);
+  };
+
+  that.activate = function () {
+    that.context.addClass('active');
+  };
+
+  that.deactivate = function () {
+    that.context.removeClass('active');
+  };
+
+  that.getCoordinates = function () {
+    var sin = Math.sin(that.position.angle)
+      , p = that.position
+      , deltaX = p.width/2  * sin
+      , deltaY = p.height/2 * sin
+      ;
+    console.log(deltaX, deltaY);
+    return {
+      tl : { x:           p.x + deltaX, y :            p.y - deltaY },
+      tr : { x: p.width + p.x - deltaX, y :            p.y + deltaY },
+      bl : { x:           p.x + deltaX, y : p.height + p.y - deltaY },
+      br : { x: p.width + p.x - deltaX, y : p.height + p.y + deltaY },
+    };
+  };
 
   // Private Methods
 
@@ -84,60 +128,5 @@ function Element(broker, borderContext, position, params)
   initDraggable();
   initDeletable();
   that.init();
-  this.broker.append(that);
-
+  that.broker.append(that);
 }
-
-Element.prototype = {
-  // Public Members
-
-  type     : "Element",
-  broker   : null,
-  position : null,
-  params   : null,
-  border   : null,
-  context  : null,
-
-  init : function () {
-
-  },
-
-  getContext : function () {
-    return this.context;
-  },
-
-  getData : function () {
-    return {
-      "position": this.position,
-      "type": this.type,
-      "params": this.params
-    }
-  },
-
-  remove : function () {
-    this.broker.detach(that);
-  },
-
-  activate : function () {
-    this.context.addClass('active');
-  },
-
-  deactivate : function () {
-    this.context.removeClass('active');
-  },
-
-  getCoordinates : function () {
-    var sin = Math.sin(this.position.angle)
-      , p = this.position
-      , deltaX = p.width/2  * sin
-      , deltaY = p.height/2 * sin
-      ;
-    console.log(deltaX, deltaY);
-    return {
-      tl : { x:           p.x + deltaX, y :            p.y - deltaY },
-      tr : { x: p.width + p.x - deltaX, y :            p.y + deltaY },
-      bl : { x:           p.x + deltaX, y : p.height + p.y - deltaY },
-      br : { x: p.width + p.x - deltaX, y : p.height + p.y + deltaY },
-    };
-  }
-};

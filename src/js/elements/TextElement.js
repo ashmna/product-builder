@@ -1,5 +1,8 @@
 function TextElement()
 {
+  // Extends
+  Element.apply(this, arguments);
+
   var that = this
     , el = null
     ;
@@ -49,7 +52,5 @@ function TextElement()
     });
   }
 
+  that.init();
 }
-
-TextElement.prototype = Object.create(Element.prototype);
-TextElement.prototype.constructor = Element;

@@ -1,5 +1,8 @@
 function ImageElement()
 {
+  // Extends
+  Element.apply(this, arguments);
+
   var that = this
     ;
   that.type = "Image Element";
@@ -15,5 +18,3 @@ function ImageElement()
   // Private Methods
   //TODO Implement Image Element
 }
-
-ImageElement.prototype = Object.create(Element.prototype);
