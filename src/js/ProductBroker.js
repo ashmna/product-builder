@@ -53,7 +53,8 @@ function ProductBroker(cxt, war)
 
   function initAutoDeactivate() {
     $(document).click(function(event){
-      if( $(event.target).hasClass('element') || $(event.target).closest('.element').length) {
+      var $tg = $(event.target);
+      if( $tg.hasClass('element') || $tg.closest('.element').length || $tg.closest('.nd').length) {
       } else {
         if(that.currentActiveProductBroker) {
           that.currentActiveProductBroker.deactivate();

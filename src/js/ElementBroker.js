@@ -42,8 +42,11 @@ function ElementBroker(context, borderContext, elements) {
   that.createNewElement = function(type) {
     var position = {x: 50, y: 50, width: 100, height: 80}
       , params = {}
+      , elementObj
       ;
-    return elementFactory(type, position, params);
+    elementObj = elementFactory(type, position, params);
+    that.activate(elementObj);
+    return elementObj;
   };
 
   // Private Methods
