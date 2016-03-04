@@ -8,7 +8,7 @@ function ElementBroker(context, borderContext, elements) {
   // Public Methods
 
   that.append = function (elementObj) {
-    context.append(elementObj.getContext());
+    borderContext.append(elementObj.getContext());
     that.list.push(elementObj);
   };
 

@@ -1,7 +1,8 @@
 function ProductBroker(cxt, war)
 {
   var that = this
-    , idCounter = 1000;
+    , idCounter = 1000
+    ;
   that.currentActiveProduct = null;
   that.currentActiveProductBroker = null;
   that.list = {};

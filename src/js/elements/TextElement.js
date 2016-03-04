@@ -52,5 +52,18 @@ function TextElement()
     });
   }
 
+  that.subscribe('drag', function(event, ui) {
+    console.log("drag", event, ui);
+  });
+
+  that.subscribe('resize', function(event, ui) {
+    console.log("resize", event, ui);
+  });
+
+  that.subscribe('rotate', function(event, ui) {
+    console.log("rotate", event, ui);
+  });
+
+
   that.init();
 }

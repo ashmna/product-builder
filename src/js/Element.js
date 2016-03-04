@@ -1,5 +1,7 @@
 function Element(broker, borderContext, position, params)
 {
+  PubSub.call(this);
+
   var that = this
     , x = 0
     , y = 0
@@ -89,6 +91,7 @@ function Element(broker, borderContext, position, params)
         that.position.y = event.pageY - y;
         ui.position.left = that.position.x;
         ui.position.top  = that.position.y;
+        that.publish('drag', [event, ui]);
       }
     });
   }
@@ -96,6 +99,9 @@ function Element(broker, borderContext, position, params)
   function initResizable() {
     that.context.resizable({
       handles: {'se': that.context.find('.helper-resize')},
+      resize: function(event, ui) {
+        that.publish('resize', [event, ui]);
+      },
       stop: function () {
         that.position.width = that.context.css('width');
         that.position.height = that.context.css('height');
@@ -109,6 +115,7 @@ function Element(broker, borderContext, position, params)
       handle: that.context.find('.helper-rotate'),
       rotate: function (event, ui) {
         that.position.angle = ui.angle.current;
+        that.publish('rotate', [event, ui]);
       }
     });
     that.context.unbind('wheel');
