@@ -1,8 +1,9 @@
-function Element(broker, borderContext, position, params)
+function Element(broker, borders, position, params)
 {
   PubSub.call(this);
 
   var that = this
+    , outOfBorder = false
     , x = 0
     , y = 0
     ;
@@ -13,7 +14,7 @@ function Element(broker, borderContext, position, params)
   that.broker   = broker;
   that.position = position;
   that.params   = params;
-  that.border   = borderContext;
+  that.borders  = borders;
   that.context  = null;
 
   // Public Methods
@@ -44,35 +45,75 @@ function Element(broker, borderContext, position, params)
     that.context.removeClass('active');
   };
 
+  that.setOutOfBorder = function (val) {
+    if(outOfBorder != val) {
+      outOfBorder = val;
+      if(outOfBorder) {
+        that.context.addClass("error-out-of-border");
+      } else {
+        that.context.removeClass("error-out-of-border");
+      }
+    }
+  };
+
+
+
   that.getCoordinates = function () {
-    var sin = Math.sin(that.position.angle)
+    // TODO: Improvement
+    var sin = Math.sin(Math.abs(that.position.angle) % (Math.PI * 0.5))
       , p = that.position
-      , deltaX = p.width/2  * sin
-      , deltaY = p.height/2 * sin
+      , deltaX = p.height*0.5 * sin
+      , deltaY = p.width *0.5 * sin
       ;
-    console.log(deltaX, deltaY);
     return {
       tl : { x:           p.x + deltaX, y :            p.y - deltaY },
       tr : { x: p.width + p.x - deltaX, y :            p.y + deltaY },
       bl : { x:           p.x + deltaX, y : p.height + p.y - deltaY },
-      br : { x: p.width + p.x - deltaX, y : p.height + p.y + deltaY },
+      br : { x: p.width + p.x - deltaX, y : p.height + p.y + deltaY }
     };
   };
 
   // Private Methods
 
+  function checkInBorder() {
+    var c = that.getCoordinates()
+      , deltaX = 0
+      , deltaY = 0
+      , w = 0
+      , h = 0
+      , border = null
+      , i = 0
+    ;
+    for(; i< that.borders.length; ++i) {
+      border = that.borders[i];
+      deltaX = border.x;
+      deltaY = border.y;
+      w = border.width;
+      h = border.height;
+      if(
+        (c.tl.x - deltaX >= 0 && c.tl.y - deltaY >= 0) &&
+        (c.tr.x - deltaX <= w && c.tr.y - deltaY >= 0) &&
+        (c.bl.x - deltaX >= 0 && c.bl.y - deltaY <= h) &&
+        (c.br.x - deltaX <= w && c.br.y - deltaY <= h)
+      ) {
+        return border;
+      }
+    }
+    return null;
+  }
+
   function initElement() {
     that.context = $('\
       <div class="element">\
-        <div class="helper-move"  > <em class="fa fa-arrows"></em>                    </div>\
-        <div class="helper-rotate"> <em class="fa fa-undo"></em>                      </div>\
-        <div class="helper-remove"> <em class="fa fa-trash"></em>                     </div>\
-        <div class="helper-resize"> <em class="fa fa-expand fa-flip-horizontal"></em> </div>\
+        <div class="helper-point helper-move"  > <em class="fa fa-arrows"></em>                    </div>\
+        <div class="helper-point helper-rotate"> <em class="fa fa-undo"></em>                      </div>\
+        <div class="helper-point helper-remove"> <em class="fa fa-trash"></em>                     </div>\
+        <div class="helper-point helper-resize"> <em class="fa fa-expand fa-flip-horizontal"></em> </div>\
       </div>')
       .css({
-        left: that.position.x,
-        top: that.position.y,
-        width: that.position.width,
+        left  : that.position.x,
+        top   : that.position.y,
+        width : that.position.width,
         height: that.position.height
       });
     that.context.mousedown(function(){
@@ -91,6 +132,7 @@ function Element(broker, borderContext, position, params)
         that.position.y = event.pageY - y;
         ui.position.left = that.position.x;
         ui.position.top  = that.position.y;
+        that.setOutOfBorder(!checkInBorder());
         that.publish('drag', [event, ui]);
       }
     });
@@ -100,11 +142,10 @@ function Element(broker, borderContext, position, params)
     that.context.resizable({
       handles: {'se': that.context.find('.helper-resize')},
       resize: function(event, ui) {
+        that.position.width  = ui.size.width;
+        that.position.height = ui.size.height;
+        that.setOutOfBorder(!checkInBorder());
         that.publish('resize', [event, ui]);
-      },
-      stop: function () {
-        that.position.width = that.context.css('width');
-        that.position.height = that.context.css('height');
       }
     });
   }
@@ -115,6 +156,7 @@ function Element(broker, borderContext, position, params)
       handle: that.context.find('.helper-rotate'),
       rotate: function (event, ui) {
         that.position.angle = ui.angle.current;
+        that.setOutOfBorder(!checkInBorder());
         that.publish('rotate', [event, ui]);
       }
     });

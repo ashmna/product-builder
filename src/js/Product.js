@@ -4,7 +4,7 @@ function Product(broker, data)
   that.broker = broker;
   that.title = data.title;
   that.image = data.image;
-  that.container = data.container;
+  that.containers = data.containers;
   that.context = null;
   that.elementsContext = null;
   that.thumbContext = null;
@@ -45,7 +45,6 @@ function Product(broker, data)
         <div class="product-background">\
           <img class="product-background-image" src="'+that.image+'">\
         </div>\
-        <div class="border elements"></div>\
       </div>');
     that.thumbContext = $('\
       <li>\
@@ -54,20 +53,29 @@ function Product(broker, data)
       </li>');
 
     that.elementsContext = that.context.find('.elements');
-    that.borderContext = that.context.find('.border');
-    that.borderContext.css({
-      width  : that.container.w,
-      height : that.container.h,
-      top    : that.container.t,
-      left   : that.container.l
-    });
     that.thumbContext.click(function(){
       that.broker.activate(that);
     });
   }
 
+  function initBorders() {
+    var i = 0
+      , tmpBorder
+      ;
+    for(; i< that.containers.length ; ++i) {
+      tmpBorder = $('<div class="border elements"></div>').css({
+        width  : that.containers[i].width,
+        height : that.containers[i].height,
+        left   : that.containers[i].x,
+        top    : that.containers[i].y
+      });
+      that.context.append(tmpBorder);
+    }
+  }
+
   // Constructor
 
   initProductContext();
+  initBorders();
   that.broker.append(that);
 }

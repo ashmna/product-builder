@@ -1,4 +1,4 @@
-function ElementBroker(context, borderContext, elements) {
+function ElementBroker(context, borders, elements) {
 
   var that = this;
   that.currentActiveElement = null;
@@ -8,7 +8,7 @@ function ElementBroker(context, borderContext, elements) {
   // Public Methods
 
   that.append = function (elementObj) {
-    borderContext.append(elementObj.getContext());
+    context.append(elementObj.getContext());
     that.list.push(elementObj);
   };
 
@@ -40,7 +40,7 @@ function ElementBroker(context, borderContext, elements) {
   };
 
   that.createNewElement = function(type) {
-    var position = {x: 50, y: 50, width: 100, height: 80}
+    var position = {x: 50, y: 50, width: 100, height: 80, angle: 0}
       , params = {}
       , elementObj
       ;
@@ -62,13 +62,13 @@ function ElementBroker(context, borderContext, elements) {
   function elementFactory(type, position, params) {
     switch (type) {
       case "Text Element" :
-        return new TextElement(that, borderContext, position, params);
+        return new TextElement(that, borders, position, params);
       case "Image Element" :
-        return new ImageElement(that, borderContext, position, params);
+        return new ImageElement(that, borders, position, params);
       case "SVG Element" :
-        return new SvgElement(that, borderContext, position, params);
+        return new SvgElement(that, borders, position, params);
       default:
-        return new Element(that, borderContext, position, params);
+        return new Element(that, borders, position, params);
     }
   }
 

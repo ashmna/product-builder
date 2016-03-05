@@ -3,12 +3,12 @@
     {
       "title": "Title",
       "image": "path/to.img",
-      "container": {
+      "container": [{
         "w": 150,
         "h": 150,
         "x": 10,
         "y": 10
-      },
+      }],
       "elements": [
         {
           "attributes": {

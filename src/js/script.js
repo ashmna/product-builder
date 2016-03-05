@@ -1,14 +1,14 @@
 $(function(){
 
   var war = {
-    "title": "Title",
+    "title": "Title - 1",
     "image": "src/img/1.png",
-    "container": {
-      "w": 450,
-      "h": 450,
-      "t": 10,
-      "l": 10
-    },
+    "containers": [{
+      "width": 450,
+      "height": 450,
+      "x": 10,
+      "y": 10
+    }],
     "elements": [
       {
         "position": {
@@ -46,16 +46,27 @@ $(function(){
     ]
   };
   var war1 = {
-    "title": "Title",
+    "title": "Title - 2",
     "image": "src/img/2.png",
-    "container": {
-      "w": 300,
-      "h": 450,
-      "t": 10,
-      "l": 10
-    },
+    "containers": [{
+      "width": 280,
+      "height": 320,
+      "x": 110,
+      "y": 95
+    }],
+    "elements": []};
+
+  var war2 = {
+    "title": "Title - 3",
+    "image": "src/img/3.png",
+    "containers": [{
+      "width": 280,
+      "height": 320,
+      "x": 180,
+      "y": 95
+    }],
     "elements": []};
   var context = new Context();
-  var productBroker = new ProductBroker(context, [war, war1]);
+  var productBroker = new ProductBroker(context, [war, war1, war2]);
 
 });

@@ -1,4 +1,4 @@
-function ProductBroker(cxt, war)
+function ProductBroker(cxt, productsData)
 {
   var that = this
     , idCounter = 1000
@@ -39,17 +39,26 @@ function ProductBroker(cxt, war)
   // Private Methods
 
   function initProducts() {
-    var i = 0, product, broker;
+    var ids = []
+      , i = 0
+      , product
+      , broker
+      ;
 
-    for (; i < war.length; ++i) {
-      product = new Product(that, war[i]);
-      broker = new ElementBroker(product.getContext(), product.getBorderContext(), war[i].elements || []);
+    for (; i < productsData.length; ++i) {
+      product = new Product(that, productsData[i]);
+      broker = new ElementBroker(product.getContext(), productsData[i].containers, productsData[i].elements || []);
       product.id = broker.id = ++idCounter+"_el";
+      ids.push(product.id);
       that.list[product.id] = {
         "product" : product,
         "broker"  : broker
       }
     }
+    if(ids.length) {
+      that.activate(that.list[ids[0]].product);
+    }
+
   }
 
   function initAutoDeactivate() {
