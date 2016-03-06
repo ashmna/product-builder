@@ -48,7 +48,7 @@ function Product(broker, data)
       </div>');
     that.thumbContext = $('\
       <li>\
-        <div class="product-thumb-viewer"></div>\
+        <div class="product-thumb-viewer"><img src="'+that.image+'"></div>\
         <div class="view-name">'+that.title+'</div>\
       </li>');
 

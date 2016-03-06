@@ -4,10 +4,10 @@ $(function(){
     "title": "Title - 1",
     "image": "src/img/1.png",
     "containers": [{
-      "width": 450,
-      "height": 450,
-      "x": 10,
-      "y": 10
+      "width": 280,
+      "height": 330,
+      "x": 35,
+      "y": 80
     }],
     "elements": [
       {
@@ -61,10 +61,16 @@ $(function(){
     "image": "src/img/3.png",
     "containers": [{
       "width": 280,
-      "height": 320,
+      "height": 120,
       "x": 180,
       "y": 95
-    }],
+    },
+      {
+        "width": 280,
+        "height": 100,
+        "x": 180,
+        "y": 315
+      }],
     "elements": []};
   var context = new Context();
   var productBroker = new ProductBroker(context, [war, war1, war2]);

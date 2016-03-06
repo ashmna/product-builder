@@ -50,7 +50,7 @@ html, body {
     border: 1px solid #aaa;
 }
 .product .elements {
-    position: relative;
+    /*position: relative;*/
 }
 
 .product .product-background {

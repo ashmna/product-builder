@@ -40,7 +40,7 @@ function ElementBroker(context, borders, elements) {
   };
 
   that.createNewElement = function(type) {
-    var position = {x: 50, y: 50, width: 100, height: 80, angle: 0}
+    var position = {x: 230, y: 120, width: 100, height: 40, angle: 0}
       , params = {}
       , elementObj
       ;
