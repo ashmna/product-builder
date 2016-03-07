@@ -56,20 +56,20 @@ function Element(broker, borders, position, params)
     }
   };
 
-
-
   that.getCoordinates = function () {
-    // TODO: Improvement
-    var sin = Math.sin(Math.abs(that.position.angle) % (Math.PI * 0.5))
+    var piHalf = Math.PI * 0.5
+      , sin = Math.sin(that.position.angle % piHalf)
       , p = that.position
-      , deltaX = p.height*0.5 * sin
-      , deltaY = p.width *0.5 * sin
+      , w = parseInt(that.position.angle / piHalf) % 2 ? p.height : p.width
+      , h = parseInt(that.position.angle / piHalf) % 2 ? p.width  : p.height
+      , deltaX = h * 0.5 * sin
+      , deltaY = w * 0.5 * sin
       ;
     return {
-      tl : { x:           p.x + deltaX, y :            p.y - deltaY },
-      tr : { x: p.width + p.x - deltaX, y :            p.y + deltaY },
-      bl : { x:           p.x + deltaX, y : p.height + p.y - deltaY },
-      br : { x: p.width + p.x - deltaX, y : p.height + p.y + deltaY }
+      tl : { x:     p.x + deltaX, y :     p.y - deltaY },
+      tr : { x: w + p.x - deltaX, y :     p.y + deltaY },
+      bl : { x:     p.x + deltaX, y : h + p.y - deltaY },
+      br : { x: w + p.x - deltaX, y : h + p.y + deltaY }
     };
   };
 
