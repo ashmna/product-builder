@@ -4,13 +4,17 @@
     <link rel="stylesheet" href="bower_components/jquery-ui-rotatable/jquery.ui.rotatable.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="src/css/tablomat-all.css">
     <link rel="stylesheet" href="src/css/thumbs.css">
     <link rel="stylesheet" href="src/css/tool-left.css">
+    <link rel="stylesheet" href="src/css/tool-right.css">
     <link rel="stylesheet" href="src/css/style.css">
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/jquery-ui-rotatable/jquery.ui.rotatable.js"></script>
+    <script src="src/js/lib/select-text.js"></script>
+
     <script src="src/js/PubSub.js"></script>
     <script src="src/js/svgElement.js"></script>
     <script src="src/js/Effects.js"></script>
@@ -101,7 +105,389 @@ nd - not deselect
 
 
     </div>
-    <div class="tool-right"></div>
+    <div class="tool-right">
+
+
+
+        <div class="sidebar-toolbox configuration-toolbox active">
+            <div class="text-toolbar-wrapper">
+                <div style="text-anchor: middle;" class="text-panel">
+                    <div>
+                        <div class="font-family-button btn-group menu-button open">
+                            <a href="javascript:void(0);" class="dropdown-toggle round-btn">
+                                <span class="icon">T </span><span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu" name="menu">
+                                <div class=" text-tools-panel tab-view">
+                                    <div class=" tab-menu">
+                                        <ul class=" nav nav-tabs">
+                                            <li class="standard-text-tab active"><a href="javascript:void(0);"> Standard font
+                                            </a></li>
+                                            <li class="special-text-tab"><a href="javascript:void(0);"> Special font
+                                            </a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div title="Standard font">
+                                            <div class="standard-text-conf">
+                                                <div class="font-family-settings">
+                                                    <div class="font-family-list-wrapper btn-group menu-button open"
+                                                         style="font-family: sprdfont_5_15;"><a href="javascript:void(0);"
+                                                                                                class="dropdown-toggle btn"><span>Arial </span><span
+                                                            class="caret"></span></a>
+                                                        <div class="dropdown-menu" name="menu">
+                                                            <ul class="font-family-list">
+                                                                <li class=" font-family-item font-25"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px 10px;">
+                                                                    American Typewriter
+                                                                </a></li>
+                                                                <li class=" font-family-item font-50"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -24px;">
+                                                                    Anzeigen
+                                                                </a></li>
+                                                                <li class=" font-family-item font-5 active"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -58px;">
+                                                                    Arial
+                                                                </a></li>
+                                                                <li class=" font-family-item font-51"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -92px;">
+                                                                    Aspirin
+                                                                </a></li>
+                                                                <li class=" font-family-item font-60"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -126px;">
+                                                                    Atomatic
+                                                                </a></li>
+                                                                <li class=" font-family-item font-52"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -160px;">
+                                                                    Bello
+                                                                </a></li>
+                                                                <li class=" font-family-item font-53"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -194px;">
+                                                                    Beluga
+                                                                </a></li>
+                                                                <li class=" font-family-item font-39"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -228px;">
+                                                                    Braille
+                                                                </a></li>
+                                                                <li class=" font-family-item font-66"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -262px;">
+                                                                    Caecilia
+                                                                </a></li>
+                                                                <li class=" font-family-item font-3"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -296px;">
+                                                                    Comic Sans
+                                                                </a></li>
+                                                                <li class=" font-family-item font-24"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -330px;">
+                                                                    Cooper Black
+                                                                </a></li>
+                                                                <li class=" font-family-item font-61"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -364px;">
+                                                                    Cutter
+                                                                </a></li>
+                                                                <li class=" font-family-item font-54"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -398px;">
+                                                                    Data Seventy
+                                                                </a></li>
+                                                                <li class=" font-family-item font-55"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -432px;">
+                                                                    Eurostile
+                                                                </a></li>
+                                                                <li class=" font-family-item font-56"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -466px;">
+                                                                    Freestyle
+                                                                </a></li>
+                                                                <li class=" font-family-item font-7"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -500px;">
+                                                                    Futura
+                                                                </a></li>
+                                                                <li class=" font-family-item font-42"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -534px;">
+                                                                    Halloween
+                                                                </a></li>
+                                                                <li class=" font-family-item font-45"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -568px;">
+                                                                    Hole Hearted Regular
+                                                                </a></li>
+                                                                <li class=" font-family-item font-57"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -602px;">
+                                                                    Jellybaby
+                                                                </a></li>
+                                                                <li class=" font-family-item font-40"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -636px;">
+                                                                    Kids
+                                                                </a></li>
+                                                                <li class=" font-family-item font-62"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -670px;">
+                                                                    Lomo Web Pixel
+                                                                </a></li>
+                                                                <li class=" font-family-item font-12"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -704px;">
+                                                                    Machine
+                                                                </a></li>
+                                                                <li class=" font-family-item font-63"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -738px;">
+                                                                    MonotypeScript
+                                                                </a></li>
+                                                                <li class=" font-family-item font-64"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -772px;">
+                                                                    Old Town
+                                                                </a></li>
+                                                                <li class=" font-family-item font-65"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -806px;">
+                                                                    Princetown
+                                                                </a></li>
+                                                                <li class=" font-family-item font-58"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -840px;">
+                                                                    Simran
+                                                                </a></li>
+                                                                <li class=" font-family-item font-67"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -874px;">
+                                                                    Stencil
+                                                                </a></li>
+                                                                <li class=" font-family-item font-68"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -908px;">
+                                                                    Stop
+                                                                </a></li>
+                                                                <li class=" font-family-item font-41"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -942px;">
+                                                                    TekniaGreek
+                                                                </a></li>
+                                                                <li class=" font-family-item font-59"><a
+                                                                        href="javascript:void(0);"
+                                                                        style="background-position: 0px -976px;">
+                                                                    Zapf Chancery
+                                                                </a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="font-family-buttons"><a href="javascript:void(0);" title="Bold"
+                                                                                        class="bold-btn">
+                                                        B
+                                                    </a><a href="javascript:void(0);" title="Italic" class="italic-btn">
+                                                        I
+                                                    </a></div>
+                                                </div>
+                                                <div class="font-size-settings">
+                                                    <form><input type="text"></form>
+                                                    <div class="pt">pt</div>
+                                                    <a href="javascript:void(0);" class=" font-decrease-btn cng-icons"><span
+                                                            class="icon">-</span></a><a href="javascript:void(0);"
+                                                                                        class=" font-increase-btn cng-icons"><span
+                                                        class="icon">+</span></a></div>
+                                                <div class=" text-setting text-alignment"><a href="javascript:void(0);"
+                                                                                             title="align left"
+                                                                                             class=" left-align-btn cng-icons"><span
+                                                        class="icon">L</span></a><a href="javascript:void(0);" title="center"
+                                                                                    class=" center-btn cng-icons active"><span
+                                                        class="icon">C</span></a><a href="javascript:void(0);"
+                                                                                    title="align right"
+                                                                                    class=" right-align-btn cng-icons"><span
+                                                        class="icon">R</span></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-toolbox-label">Text settings</div>
+            </div>
+            <div>
+                <div class="configuration-color-selector">
+                    <div class="layer-buttons"><a href="javascript:void(0);" class=" round-btn layer-button layer-button-0">
+                        <div style="display: block; background-color: rgb(0, 0, 0);" class="icon print-color-image"></div>
+                    </a></div>
+                    <div class=" btn-group menu-button design-color-picker-button for-layer-"><a href="javascript:void(0);"
+                                                                                                 class="dropdown-toggle btn"><span> </span><span
+                            class="caret"></span></a>
+                        <div class="dropdown-menu" name="menu">
+                            <div class="design-color-picker simple-color-picker">
+                                <div class="simple-color-picker-container">
+                                    <ul class="simple-color-picker-list">
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(0, 0, 0);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(255, 255, 255);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(234, 208, 128);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(234, 228, 75);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(217, 255, 3);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(255, 192, 40);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(227, 81, 16);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(255, 76, 13);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(172, 130, 73);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(75, 27, 0);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(91, 11, 32);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(255, 144, 144);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(212, 28, 59);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(255, 52, 132);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(169, 35, 85);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(82, 25, 115);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(205, 191, 227);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(157, 200, 217);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(0, 145, 211);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(25, 47, 151);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(20, 23, 84);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(0, 126, 128);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(0, 125, 68);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(0, 255, 0);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(183, 237, 111);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(124, 143, 163);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(120, 120, 120);"></div>
+                                        </li>
+                                        <li style="height: 10px;">
+                                            <div class="print-color-image"
+                                                 style="display: block; background-color: rgb(139, 116, 38);"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="simple-color-picker-zoom" style="position: absolute; top: 5px;">
+                                    <div style="background-color: rgb(0, 0, 0);" class="print-color-image"></div>
+                                    <p><span>black </span></p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-toolbox-label">Text color</div>
+            </div>
+            <div class="print-type-button btn-group menu-button">
+                <a href="javascript:void(0);" class="dropdown-toggle round-btn print-type-10"><i
+                    class="icon"></i><span> </span><span class="caret"></span></a>
+                <div class="dropdown-menu" name="menu">
+                    <div class="print-type-list-wrapper">
+                        <div style="" class="print-type-selector">
+                            <div>
+                                <div class=" print-type-item print-type-10 active"><a href="javascript:void(0);"><span
+                                        class="icon"></span><span class="label">Thermal sublimation</span></a></div>
+                            </div>
+                        </div>
+                        <a class="more-info" target="_blank" href="/-C1328/categoryId/9">
+                            More info
+                        </a></div>
+                </div>
+            </div>
+            <div class="notificationPosition btn-group menu-button"><a href="javascript:void(0);"
+                                                                       class="dropdown-toggle btn"><span> </span><span
+                    class="caret"></span></a>
+                <div class="dropdown-menu" name="menu">
+                    <div class="printTypeNotification"><p>We had to change the printing method used so that your design can be
+                        printed in the desired size.</p></div>
+                </div>
+            </div>
+            <div class=" sidebar-toolbox-label design-color-label">Print type</div>
+        </div>
+
+
+
+    </div>
 
     <div class="canvas">
 
@@ -248,6 +634,7 @@ nd - not deselect
       </a>
   -->
 </div>
+
 
 </body>
 </html>

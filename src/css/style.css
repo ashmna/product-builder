@@ -21,11 +21,6 @@ html, body {
 }
 
 
-.tool-right {
-    position: relative;
-    right: 0;
-    top: 0;
-}
 
 .canvas {
     background: -webkit-gradient(radial,center center,0,center center,100%,color-stop(0%,rgba(240,240,240,0)),color-stop(33%,rgba(240,240,240,.49)),color-stop(67%,#ededed),color-stop(100%,#ebebeb));
@@ -137,4 +132,11 @@ html, body {
     top: 0;
     right: -18px;
     cursor: pointer;
+}
+.ui-my-resizable-handle {
+    position: absolute;
+    font-size: 0.1px;
+    display: block;
+    -ms-touch-action: none;
+    touch-action: none;
 }
