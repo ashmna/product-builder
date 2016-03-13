@@ -8,6 +8,8 @@ function TextElement()
     , editPointContext = null
     , w = 0
     , h = 0
+    , alsoResize = false
+    , startFontSize = 0
     ;
   that.type = "Text Element";
 
@@ -17,6 +19,11 @@ function TextElement()
    *  Text Element Constructor
    */
   that.init = function () {
+    initResizable();
+    that.initRotatable();
+    that.initDraggable();
+    that.initDeletable();
+
     initDefault();
     initElement();
     doStyling();
@@ -28,6 +35,43 @@ function TextElement()
   };
 
   // Private Methods
+  function initResizable() {
+    var resizable = that.initResizable();
+    var e = $('<div class="ui-my-resizable-handle ui-resizable-e" style="z-index: 90;"></div>');
+    var s = $('<div class="ui-my-resizable-handle ui-resizable-s" style="z-index: 90;"></div>');
+    resizable.append(e).append(s);
+    var resizableHandles = resizable.resizable("option", "handles");
+    resizableHandles.e = e;
+    resizableHandles.s = s;
+
+
+    resizableHandles.se.mousedown(function () {
+      alsoResize = true;
+    });
+
+    resizable.on( "resizestop", function() {
+      alsoResize = false;
+    });
+
+    resizable.on( "resizestart", function(event, ui) {
+      if(alsoResize) {
+        w = ui.size.width;
+        h = ui.size.height;
+        startFontSize = parseInt(that.params["font-size"]);
+
+        alsoResize = w / h;
+      }
+    });
+
+
+    resizable.resizable("option", "handles", resizableHandles);
+    refresh();
+
+    function refresh() {
+      var options = resizable.resizable( "option" );
+      resizable.resizable("destroy").resizable(options);
+    }
+  }
 
   function initDefault() {
     var defaultVal = {
@@ -85,38 +129,21 @@ function TextElement()
   });
 
   that.subscribe('resize', function(event, ui) {
-    var pix = ( (ui.size.width - w) && (ui.size.height -h) ) * 0.4;
-    if(Math.abs(pix) >= 1) {
-      that.params["font-size"] = parseInt(that.params["font-size"]) + pix + "px";
+    if(alsoResize !== false) {
+      ui.size.width = alsoResize * ui.size.height;
+
+      that.params["font-size"] = ui.size.width / w * startFontSize + "px";
       doStyling();
     }
-
-    w = ui.size.width;
-    h = ui.size.height;
-    //console.log("resize", event, ui);
   });
 
   that.subscribe('rotate', function(event, ui) {
     //console.log("rotate", event, ui);
   });
 
-  jQuery.fn.selectText = function(){
-    var element = this[0]
-      , range
-      ;
-    if (document.body.createTextRange) {
-      range = document.body.createTextRange();
-      range.moveToElementText(element);
-      range.select();
-    } else if (window.getSelection) {
-      var selection = window.getSelection();
-      range = document.createRange();
-      range.selectNodeContents(element);
-      selection.removeAllRanges();
-      selection.addRange(range);
-    }
-  };
 
+
+  // Call Constructor
 
   that.init();
 }
