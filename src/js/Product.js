@@ -37,6 +37,36 @@ function Product(broker, data)
     that.thumbContext.removeClass('active');
   };
 
+  that.renderImageData = function (img, w, h, callBack) {
+    w = w || 500;
+    h = h || 500;
+    //var el = that.context.clone();
+    //el.find('.element').removeClass('active');
+    //el.find('.border').css('border', 'none');
+    //el.css({
+    //  display: 'block',
+    //  width  : '500px',
+    //  height : '500px'
+    //});
+    //el.appendTo(document.body);
+    return html2canvas(that.context[0], {
+      onrendered: function (canvas) {
+        var extra_canvas = document.createElement("canvas");
+        extra_canvas.setAttribute('width', w);
+        extra_canvas.setAttribute('height', h);
+        var ctx = extra_canvas.getContext('2d');
+        ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, w, h);
+        var dataURL = extra_canvas.toDataURL();
+        if (callBack) {
+          callBack(dataURL);
+        }
+        if (img) {
+          img.attr('src', dataURL);
+        }
+      }
+    });
+  };
+
   // Private Methods
 
   function initProductContext() {

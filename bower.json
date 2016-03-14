@@ -4,6 +4,7 @@
     "jquery": "*",
     "jquery-ui": "*",
     "jquery-ui-rotatable": "*",
-    "font-awesome": "fontawesome#^4.5.0"
+    "font-awesome": "fontawesome#^4.5.0",
+    "html2canvas": "^0.4.1"
   }
 }
