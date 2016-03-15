@@ -1,0 +1,36 @@
+@import "../vars";
+
+* {
+  font-family: $main-font-family;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  position: relative;
+  background: url($pattern-img-url);
+  /*z-index: -1;*/
+  width: 100%;
+  height: 100%;
+}
+
+
+.tool-top,
+.tool-footer {
+  /*background: rgb(236,236,236);*/
+  width: 100%;
+}
+
+
+.canvas {
+  background: -webkit-gradient(radial,center center,0,center center,100%,color-stop(0%,rgba(240,240,240,0)),color-stop(33%,rgba(240,240,240,.49)),color-stop(67%,#ededed),color-stop(100%,#ebebeb));
+  background: -webkit-radial-gradient(center,ellipse cover,rgba(240,240,240,0) 0,rgba(240,240,240,.49) 33%,#ededed 67%,#ebebeb 100%);
+  background: -webkit-radial-gradient(center,ellipse,rgba(240,240,240,0) 0,rgba(240,240,240,.49) 33%,#ededed 67%,#ebebeb 100%);
+  background: radial-gradient(ellipse at center,rgba(240,240,240,0) 0,rgba(240,240,240,.49) 33%,#ededed 67%,#ebebeb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0',endColorstr='#ebebeb',GradientType=1);
+  width: 100%;
+  height: 100%;
+}

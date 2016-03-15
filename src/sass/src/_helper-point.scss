@@ -1,0 +1,63 @@
+@import "../vars";
+
+$offset-helper-size : 18px;
+
+.product .element {
+  .helper-point {
+    display: none;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px dotted $pending-color;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    > em {
+      margin-top: 1px;
+      transition: color 0.3s;
+      color: $pending-color;
+    }
+    &:hover > em {
+      color: $active-color;
+    }
+  }
+
+  .helper-move {
+    top: -$offset-helper-size;
+    left: -$offset-helper-size;
+    cursor: move;
+  }
+  .helper-rotate {
+    top: -$offset-helper-size;
+    right: -$offset-helper-size;
+    cursor: move;
+  }
+  .helper-remove {
+    bottom: -$offset-helper-size;
+    left: -$offset-helper-size;
+    cursor: pointer;
+  }
+  .helper-resize {
+    bottom: -$offset-helper-size;
+    right: -$offset-helper-size;
+    cursor: se-resize;
+  }
+  .helper-edit-text {
+    top: 0;
+    right: -$offset-helper-size;
+    cursor: pointer;
+  }
+  .ui-my-resizable-handle {
+    position: absolute;
+    font-size: 0.1px;
+    display: block;
+    -ms-touch-action: none;
+    touch-action: none;
+  }
+
+}
+.product .element.active {
+  .helper-point {
+    display: block;
+  }
+}

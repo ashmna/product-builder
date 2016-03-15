@@ -1,0 +1,99 @@
+@import "../vars";
+
+.product {
+  position: relative;
+  overflow: hidden;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  .product-background {
+    position: absolute;
+    display: block;
+  }
+  .product-background-image {
+    display: block;
+  }
+  .border {
+    position: absolute;
+    border: 1px solid $border-color;
+  }
+
+}
+
+.element-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.helper-point {
+  display: none;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 1px dotted $pending-color;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.helper-point > em {
+  margin-top: 1px;
+  transition: color 0.3s;
+  color: $pending-color;
+}
+
+.helper-point:hover > em{
+  color: $active-color;
+}
+
+
+.active .helper-point {
+  display: block;
+}
+.active.element {
+  border: 1px dashed $active-color;
+}
+.active.error-out-of-border.element {
+  border: 1px dashed $error-color;
+}
+.error-out-of-border.element {
+  border: 1px dashed $error-color+10;
+}
+
+
+.helper-move {
+  top: -18px;
+  left: -18px;
+  cursor: move;
+}
+.helper-rotate {
+  top: -18px;
+  right: -18px;
+  cursor: move;
+}
+.helper-remove {
+  bottom: -18px;
+  left: -18px;
+  cursor: pointer;
+}
+.helper-resize {
+  bottom: -18px;
+  right: -18px;
+  cursor: se-resize;
+}
+.helper-edit-text {
+  top: 0;
+  right: -18px;
+  cursor: pointer;
+}
+.ui-my-resizable-handle {
+  position: absolute;
+  font-size: 0.1px;
+  display: block;
+  -ms-touch-action: none;
+  touch-action: none;
+}

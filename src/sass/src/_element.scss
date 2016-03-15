@@ -1,0 +1,17 @@
+@import "../vars";
+
+.product .element {
+  display: block;
+  position: absolute !important;
+  border: 1px dashed transparent;
+
+}
+.product .element.active {
+  border: 1px dashed $active-color;
+  &.error-out-of-border {
+    border: 1px dashed $error-color;
+  }
+  &.error-out-of-border {
+    border: 1px dashed $error-color+10;
+  }
+}
