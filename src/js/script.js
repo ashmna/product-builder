@@ -12,9 +12,9 @@ $(function(){
     "elements": [
       {
         "position": {
-          "x": 100,
-          "y": 100,
-          "width": 200,
+          "x": 35,
+          "y": 90,
+          "width": 280,
           "height": 50,
           "angle":0
         },

@@ -1,5 +1,49 @@
+@import "../vars";
+
 .tool-right {
   position: absolute;
   right: 0;
   top: 0;
+
+  .panel {
+    font-family: $main-font-family;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 270px;
+    border-radius: 10px;
+    z-index: 1;
+    padding: 1em 0;
+    border: 1px solid $tool-border-color;
+    background: $tool-background-color;
+    background-image: -webkit-linear-gradient(top, $tool-background-color, $tool-background-color-2);
+    background-image: linear-gradient(to bottom, $tool-background-color, $tool-background-color-2);
+
+    .input-block {
+      border-bottom: 1px solid $tool-border-color;
+      padding: .5em;
+      padding-left: 1.5em;
+
+      label {
+        font-size: 1em;
+        text-align: left;
+        display: block;
+        cursor: pointer;
+      }
+      input {
+        padding: 0.1em;
+        height: 35px;
+        width: 100%;
+        font-size: 1.3em;
+        display: inline-block;
+        box-sizing: border-box;
+        border: 1px solid $tool-border-color;
+        border-radius: 3px;
+      }
+    }
+    .input-block:last-child {
+      border-bottom: 1px transparent;
+    }
+  }
 }

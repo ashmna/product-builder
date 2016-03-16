@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="src/css/tablomat-all.css">
     <link rel="stylesheet" href="src/css/style.css">
 
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Passion+One|Titillium+Web|PT+Serif|Nunito|Amatic+SC|Pacifico|Shadows+Into+Light|Orbitron|Dancing+Script|Architects+Daughter|Chewy|Gloria+Hallelujah|Lobster+Two|Cinzel|Satisfy|Covered+By+Your+Grace|Rock+Salt' rel='stylesheet' type='text/css'>
+
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/jquery-ui-rotatable/jquery.ui.rotatable.js"></script>
@@ -20,6 +22,7 @@
     <script src="src/js/Context.js"></script>
     <script src="src/js/Product.js"></script>
     <script src="src/js/Element.js"></script>
+    <script src="src/js/elements/FixTextElement.js"></script>
     <script src="src/js/elements/TextElement.js"></script>
     <script src="src/js/elements/ImageElement.js"></script>
     <script src="src/js/elements/SvgElement.js"></script>
@@ -106,7 +109,7 @@ nd - not deselect
 
 
 
-        <div class="sidebar-toolbox configuration-toolbox active">
+      <!--  <div class="sidebar-toolbox configuration-toolbox active">
             <div class="text-toolbar-wrapper">
                 <div style="text-anchor: middle;" class="text-panel">
                     <div>
@@ -481,9 +484,22 @@ nd - not deselect
             </div>
             <div class=" sidebar-toolbox-label design-color-label">Print type</div>
         </div>
+-->
 
-
-
+        <div class="panel">
+            <div class="input-block">
+                <label for="ft1"> Test 1 </label>
+                <input id="ft1" type="text" placeholder="Example">
+            </div>
+            <div class="input-block">
+                <label for="ft2"> Label 2 </label>
+                <input id="ft2" type="text" placeholder="placeholder">
+            </div>
+            <div class="input-block">
+                <label for="ft3"> Label 3 </label>
+                <input id="ft3" type="text" placeholder="placeholder">
+            </div>
+        </div>
     </div>
 
     <div class="canvas">
