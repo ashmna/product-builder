@@ -1,20 +1,20 @@
 function ElementBroker(context, borders, elements) {
 
-  var that = this;
+  var that                  = this;
   that.currentActiveElement = null;
-  that.indexCounter = 0;
-  that.list = [];
+  that.indexCounter         = 0;
+  that.list                 = {};
 
   // Public Methods
 
   that.append = function (elementObj) {
     context.append(elementObj.getContext());
-    that.list.push(elementObj);
+    that.list[elementObj.id] = elementObj;
   };
 
   that.detach = function (elementObj) {
-    if(that.list.indexOf(elementObj) != -1) {
-      that.list.splice(that.list.indexOf(elementObj), 1);
+    if(that.list[elementObj.id]) {
+      delete that.list[elementObj.id];
     }
     elementObj.getContext().fadeOut(Effects.fastSpeed, Effects.easing, function () {
       elementObj.getContext().remove();
@@ -49,6 +49,11 @@ function ElementBroker(context, borders, elements) {
     return elementObj;
   };
 
+  that.appendPanel = function(panelElement) {
+    $("#panel_1").append(panelElement);
+    // TODO: append panel tool element in panel context
+  };
+
   // Private Methods
 
   function initElements() {
@@ -60,21 +65,29 @@ function ElementBroker(context, borders, elements) {
   }
 
   function elementFactory(type, position, params) {
+    var id = ++Context.idCounter + '_element';
+    var elementInstance = null;
+
     switch (type) {
       case "Fix Text" :
-        return new FixTextElement(that, borders, position, params);
+        elementInstance = FixTextElement(id, that, borders, position, params);
+        var panelToolInstance = new FixTextPanel(id, that, params)
+        break;
       case "Text" :
-        return new TextElement(that, borders, position, params);
+        elementInstance = new TextElement(id, that, borders, position, params);
+        break;
       case "Image" :
-        return new ImageElement(that, borders, position, params);
+        elementInstance = new ImageElement(id, that, borders, position, params);
+        break;
       case "SVG" :
-        return new SvgElement(that, borders, position, params);
+        elementInstance = new SvgElement(id, that, borders, position, params);
+        break;
       default:
-        return new Element(that, borders, position, params);
+        elementInstance = new Element(id, that, borders, position, params);
     }
+    return elementInstance;
   }
 
-  // Constructor
-
+  // Calll Constructor
   initElements();
 }

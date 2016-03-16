@@ -1,4 +1,4 @@
-function Element(broker, borders, position, params)
+function Element(id, broker, borders, position, params)
 {
   PubSub.call(this);
 
@@ -10,6 +10,7 @@ function Element(broker, borders, position, params)
 
   // Public Members
 
+  that.id       = id;
   that.type     = "Element";
   that.broker   = broker;
   that.position = position;

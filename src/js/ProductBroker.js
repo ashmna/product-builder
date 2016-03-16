@@ -1,7 +1,6 @@
 function ProductBroker(cxt, productsData)
 {
   var that = this
-    , idCounter = 1000
     ;
   that.currentActiveProduct = null;
   that.currentActiveProductBroker = null;
@@ -48,7 +47,7 @@ function ProductBroker(cxt, productsData)
     for (; i < productsData.length; ++i) {
       product = new Product(that, productsData[i]);
       broker = new ElementBroker(product.getContext(), productsData[i].containers, productsData[i].elements || []);
-      product.id = broker.id = ++idCounter+"_el";
+      product.id = broker.id = ++Context.idCounter + "_el";
       ids.push(product.id);
       that.list[product.id] = {
         "product" : product,

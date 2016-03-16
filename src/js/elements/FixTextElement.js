@@ -22,8 +22,8 @@ function FixTextElement()
   };
 
   that.setText = function(text) {
-    that.params["text"] = text;
-    doStyling();
+    that.params.text = text;
+    el.text(text);
   };
 
   that.getText = function() {
@@ -72,6 +72,7 @@ function FixTextElement()
   function endEditor() {
     //that.context.draggable( "option", "disabled", false);
     el.attr("contenteditable", false);
+    that.params.text = el.text();
   }
 
   function doStyling() {

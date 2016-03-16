@@ -144,6 +144,5 @@ function TextElement()
 
 
   // Call Constructor
-
   that.init();
 }

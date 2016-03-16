@@ -1,4 +1,5 @@
-function Context() {
+function Context()
+{
   var that = this
     , mainContext = $('.main')
     , canvasContext = mainContext.find('.canvas')
@@ -25,3 +26,5 @@ function Context() {
 
 
 }
+
+Context.idCounter = 1000;
