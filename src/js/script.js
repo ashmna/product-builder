@@ -12,13 +12,13 @@ $(function(){
     "elements": [
       {
         "position": {
-          "x": 10,
-          "y": 10,
-          "height": 100,
-          "width": 100,
+          "x": 100,
+          "y": 100,
+          "width": 200,
+          "height": 50,
           "angle":0
         },
-        "type": "____",
+        "type": "Fix Text",
         "params": {}
       },
       //{

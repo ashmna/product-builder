@@ -5,7 +5,7 @@ function ImageElement()
 
   var that = this
     ;
-  that.type = "Image Element";
+  that.type = "Image";
 
   // Public Methods
 

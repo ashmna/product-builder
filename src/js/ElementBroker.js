@@ -61,11 +61,13 @@ function ElementBroker(context, borders, elements) {
 
   function elementFactory(type, position, params) {
     switch (type) {
-      case "Text Element" :
+      case "Fix Text" :
+        return new FixTextElement(that, borders, position, params);
+      case "Text" :
         return new TextElement(that, borders, position, params);
-      case "Image Element" :
+      case "Image" :
         return new ImageElement(that, borders, position, params);
-      case "SVG Element" :
+      case "SVG" :
         return new SvgElement(that, borders, position, params);
       default:
         return new Element(that, borders, position, params);

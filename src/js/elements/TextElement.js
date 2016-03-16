@@ -11,7 +11,7 @@ function TextElement()
     , alsoResize = false
     , startFontSize = 0
     ;
-  that.type = "Text Element";
+  that.type = "Text";
 
   // Public Methods
 

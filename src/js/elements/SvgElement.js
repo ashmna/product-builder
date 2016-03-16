@@ -5,7 +5,7 @@ function SvgElement()
 
   var that = this
     ;
-  that.type = "SVG Element";
+  that.type = "SVG";
 
   // Public Methods
 
