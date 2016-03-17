@@ -19,6 +19,7 @@
     background: $tool-background-color;
     background-image: -webkit-linear-gradient(top, $tool-background-color, $tool-background-color-2);
     background-image: linear-gradient(to bottom, $tool-background-color, $tool-background-color-2);
+    box-shadow: $box-shadow;
 
     .input-block {
       border-bottom: 1px solid $tool-border-color;
@@ -40,6 +41,11 @@
         box-sizing: border-box;
         border: 1px solid $tool-border-color;
         border-radius: 3px;
+        &:focus {
+          outline: none;
+          border-color: $main-color;
+        }
+
       }
     }
     .input-block:last-child {

@@ -70,8 +70,8 @@ function ElementBroker(context, borders, elements) {
 
     switch (type) {
       case "Fix Text" :
-        elementInstance = FixTextElement(id, that, borders, position, params);
-        var panelToolInstance = new FixTextPanel(id, that, params)
+        elementInstance = new FixTextElement(id, that, borders, position, params);
+        var panelToolInstance = new FixTextPanel(id, that, params);
         break;
       case "Text" :
         elementInstance = new TextElement(id, that, borders, position, params);

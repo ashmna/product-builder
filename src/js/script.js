@@ -19,8 +19,43 @@ $(function(){
           "angle":0
         },
         "type": "Fix Text",
-        "params": {}
+        "params": {
+          "title": "title"
+        }
       },
+      {
+        "position": {
+          "x": 35,
+          "y": 140,
+          "width": 280,
+          "height": 50,
+          "angle":0
+        },
+        "type": "Fix Text",
+        "params": {
+          "title": "Hello",
+          "text":"Hello, World!",
+          "color" : "red"
+        }
+      },
+      {
+        "position": {
+          "x": 35,
+          "y": 200,
+          "width": 280,
+          "height": 110,
+          "angle":0
+        },
+        "type": "Fix Text",
+        "params": {
+          "title": "Site",
+          "text":"Narinj.am",
+          "font-family": "'Gloria Hallelujah', cursive",
+          "font-size": "50px",
+          "color" : "orangered"
+        }
+      },
+      //orangered
       //{
       //  "position": {
       //    "x": 180,

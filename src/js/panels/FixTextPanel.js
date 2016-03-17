@@ -32,7 +32,7 @@ function FixTextPanel()
 		that.broker.appendPanel(block);
 	}
 
-	function initBinding() {;
+	function initBinding() {
 		var elementObj = null;
 		if(that.broker.list[that.id]) {
 			elementObj = that.broker.list[that.id];
