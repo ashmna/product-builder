@@ -1,8 +1,5 @@
 @import "../vars";
 
-* {
-  font-family: $main-font-family;
-}
 
 html, body {
   margin: 0;
@@ -15,6 +12,15 @@ html, body {
   /*z-index: -1;*/
   width: 100%;
   height: 100%;
+  *:not(.fa) {
+    font-family: $main-font-family;
+  }
+  *::-moz-selection {
+    background: $select-area-color;
+  }
+  *::selection {
+    background: $select-area-color;
+  }
 }
 
 
