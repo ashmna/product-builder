@@ -1,63 +1,64 @@
 function FixTextPanel()
 {
-	// Extends
-	Panel.apply(this, arguments);
+  // Extends
+  Panel.apply(this, arguments);
 
-	var that  = this
-	  , block = null
-	  , label = null
-	  , el    = null
-	;
+  var that = this
+    , block = null
+    , label = null
+    , el = null
+    ;
 
-	// Public Methods
+  // Public Methods
 
-	that.init = function () {
-		initElement();
-		initBinding();
-	};
+  that.init = function () {
+    initElement();
+    initBinding();
+  };
 
-	// Private Methods
+  // Private Methods
 
-	function initElement() {
-		var title = that.params.title || '';
-		var placeholder = that.params.placeholder || '';
-		var text = that.params.text || '';
-		block = $('<div class="input-block nd"></div>');
-		label = $('<label for="ft'+that.id+'"> '+title+' </label>');
-		el = $('<input id="ft'+that.id+'" type="text" placeholder="'+placeholder+'" value="'+text+'">');
+  function initElement() {
+    var title = that.params.title || '';
+    var placeholder = that.params.placeholder || '';
+    var text = that.params.text || '';
+    block = $('<div class="input-block nd"></div>');
+    label = $('<label for="ft' + that.id + '"> ' + title + ' </label>');
+    el = $('<input id="ft' + that.id + '" type="text" placeholder="' + placeholder + '" value="' + text + '">');
 
-		block.append(label);
-		block.append(el);
+    block.append(label);
+    block.append(el);
 
-		that.broker.appendPanel(block);
-	}
+    that.broker.appendPanel(block);
+  }
 
-	function initBinding() {
-		var elementObj = null;
-		if(that.broker.list[that.id]) {
-			elementObj = that.broker.list[that.id];
-		}
-		
-		el.focus(function() {
-			// TODO: improve
-			if(elementObj) {
-				that.broker.activate(elementObj);
-			}
-		});
+  function initBinding() {
+    var elementObj = null;
+    if (that.broker.list[that.id]) {
+      elementObj = that.broker.list[that.id];
+    }
 
-		el.keydown(handler);
-		el.keypress(handler);
-		el.change(handler);
-		el.keyup(handler);
+    el.focus(function () {
+      // TODO: improve
+      if (elementObj) {
+        that.broker.activate(elementObj);
+      }
+      el.select();
+    });
 
-		function handler(event) {
-			// TODO: improve
-			if(elementObj) {
-				elementObj.setText(this.value);
-			}
-		}
-	}
+    el.keydown(handler);
+    el.keypress(handler);
+    el.change(handler);
+    el.keyup(handler);
 
-	// Call Constructor
-	that.init();
+    function handler(event) {
+      // TODO: improve
+      if (elementObj) {
+        elementObj.setText(this.value);
+      }
+    }
+  }
+
+  // Call Constructor
+  that.init();
 }
