@@ -38,6 +38,10 @@ function FixTextPanel()
       elementObj = that.broker.list[that.id];
     }
 
+		elementObj.getContext().click(function(){
+			el.focus();
+		});
+
     el.focus(function () {
       // TODO: improve
       if (elementObj) {
