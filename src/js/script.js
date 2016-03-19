@@ -107,7 +107,10 @@ $(function(){
         "y": 315
       }],
     "elements": []};
-  var context = new Context();
-  var productBroker = new ProductBroker(context, [war, war1, war2]);
+  //var context = new Context($('.main'));
+  //var productBroker = new ProductBroker(context, [war, war1, war2]);
+  $.getJSON('/product.json', function(data){
+    $('body').p
+  });
 
 });

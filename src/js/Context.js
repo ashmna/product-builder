@@ -1,9 +1,9 @@
-function Context()
+function Context(mainContext)
 {
   var that = this
-    , mainContext = $('.main')
     , canvasContext = mainContext.find('.canvas')
-    , thumbsContext = $('.tool-footer .thumbs')
+    , thumbsContext = mainContext.find('.tool-footer .thumbs')
+    , toolRightContext = mainContext.find('.tool-right')
     ;
 
   that.getContext = function () {
@@ -12,6 +12,10 @@ function Context()
 
   that.getCanvasContext = function () {
     return canvasContext;
+  };
+
+  that.getToolRightContext = function () {
+    return toolRightContext;
   };
 
   that.getThumbsContext = function () {

@@ -49,7 +49,7 @@ function FixTextElement()
   }
 
   function initElement() {
-    el = $('<span class="element-text" spellcheck="false">' + that.params.text + '</span>');
+    el = $('<span class="element-fix-text" spellcheck="false">' + that.params.text + '</span>');
     that.context.append(el);
   }
 

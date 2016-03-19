@@ -1,6 +1,7 @@
-function ElementBroker(context, borders, elements) {
+function ElementBroker(context, board, borders, elements) {
 
   var that                  = this;
+  that.board                = board;
   that.currentActiveElement = null;
   that.indexCounter         = 0;
   that.list                 = {};
@@ -50,7 +51,8 @@ function ElementBroker(context, borders, elements) {
   };
 
   that.appendPanel = function(panelElement) {
-    $("#panel_1").append(panelElement);
+    board.append(panelElement);
+    //$("#panel_1").append(panelElement);
     // TODO: append panel tool element in panel context
   };
 

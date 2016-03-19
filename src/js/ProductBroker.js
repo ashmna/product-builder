@@ -4,6 +4,7 @@ function ProductBroker(cxt, productsData)
     ;
   that.currentActiveProduct = null;
   that.currentActiveProductBroker = null;
+  that.currentActiveBoard = null;
   that.list = {};
 
   // Public Methods
@@ -18,13 +19,19 @@ function ProductBroker(cxt, productsData)
       if (that.currentActiveProduct) {
         that.currentActiveProduct.deactivate();
         that.currentActiveProduct.getContext().fadeOut(Effects.fastSpeed, Effects.easing, function(){
-          productObj.getContext().fadeIn(Effects.fastSpeed, Effects.easing);
+          productObj.getContext().fadeIn(Effects.fastSpeed, Effects.easing, function(){
+            that.currentActiveBoard.show();
+          });
         });
+        that.currentActiveBoard.hide();
       } else {
-        productObj.getContext().fadeIn(Effects.fastSpeed, Effects.easing);
+        productObj.getContext().fadeIn(Effects.fastSpeed, Effects.easing, function(){
+          that.currentActiveBoard.show();
+        });
       }
       that.currentActiveProduct = productObj;
       that.currentActiveProductBroker = that.list[that.currentActiveProduct.id].broker;
+      that.currentActiveBoard = that.list[that.currentActiveProduct.id].board;
       productObj.activate();
     }
   };
@@ -42,16 +49,20 @@ function ProductBroker(cxt, productsData)
       , i = 0
       , product
       , broker
+      , board
       ;
 
     for (; i < productsData.length; ++i) {
       product = new Product(that, productsData[i]);
-      broker = new ElementBroker(product.getContext(), productsData[i].containers, productsData[i].elements || []);
-      product.id = broker.id = ++Context.idCounter + "_el";
+      board   = new PanelBoard(cxt.getToolRightContext());
+      broker  = new ElementBroker(product.getContext(), board, productsData[i].containers, productsData[i].elements || []);
+      board.run();
+      product.id = broker.id = board.id = ++Context.idCounter + "_product";
       ids.push(product.id);
       that.list[product.id] = {
         "product" : product,
-        "broker"  : broker
+        "broker"  : broker,
+        "board"   : board
       }
     }
     if(ids.length) {
