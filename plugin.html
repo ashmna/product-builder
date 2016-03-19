@@ -1,0 +1,27 @@
+<html>
+<head>
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="bower_components/jquery-ui-rotatable/jquery.ui.rotatable.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Passion+One|Titillium+Web|PT+Serif|Nunito|Amatic+SC|Pacifico|Shadows+Into+Light|Orbitron|Dancing+Script|Architects+Daughter|Chewy|Gloria+Hallelujah|Lobster+Two|Cinzel|Satisfy|Covered+By+Your+Grace|Rock+Salt' rel='stylesheet' type='text/css'>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/jquery-ui-rotatable/jquery.ui.rotatable.js"></script>
+    <script src="bower_components/html2canvas/build/html2canvas.js"></script>
+    <script src="src/plugin/dist/product-builder.js"></script>
+    <script>
+        $(function($){
+            $.getJSON('product.json', function(data){
+                $('body').productBuilder(data);
+            });
+        });
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

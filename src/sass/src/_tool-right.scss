@@ -2,10 +2,13 @@
 
 .tool-right {
   position: absolute;
+  height: 100%;
+  width: 275px;
+  overflow: hidden;
   right: 0;
   top: 0;
 
-  .panel {
+  .board {
     font-family: $main-font-family;
     text-align: right;
     position: absolute;
@@ -21,35 +24,39 @@
     background-image: linear-gradient(to bottom, $tool-background-color, $tool-background-color-2);
     box-shadow: $box-shadow;
 
-    .input-block {
-      border-bottom: 1px solid $tool-border-color;
-      padding: .5em;
-      padding-left: 1.5em;
+    &.panel {
 
-      label {
-        font-size: 1em;
-        text-align: left;
-        display: block;
-        cursor: pointer;
-      }
-      input {
-        padding: 0.1em;
-        height: 35px;
-        width: 100%;
-        font-size: 1.3em;
-        display: inline-block;
-        box-sizing: border-box;
-        border: 1px solid $tool-border-color;
-        border-radius: 3px;
-        &:focus {
-          outline: none;
-          border-color: $main-color;
+      .input-block {
+        border-bottom: 1px solid $tool-border-color;
+        padding: .5em;
+        padding-left: 1.5em;
+
+        label {
+          font-size: 1em;
+          text-align: left;
+          display: block;
+          cursor: pointer;
         }
+        input {
+          padding: 0.1em;
+          height: 35px;
+          width: 100%;
+          font-size: 1.3em;
+          display: inline-block;
+          box-sizing: border-box;
+          border: 1px solid $tool-border-color;
+          border-radius: 3px;
+          &:focus {
+            outline: none;
+            border-color: $main-color;
+          }
 
+        }
       }
-    }
-    .input-block:last-child {
-      border-bottom: 1px transparent;
+      .input-block:last-child {
+        border-bottom: 1px transparent;
+      }
+
     }
   }
 }

@@ -5,6 +5,24 @@
   position: absolute !important;
   border: 1px dashed transparent;
 
+  .element-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  .element-fix-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    cursor: default;
+  }
+
 }
 .product .element.active {
   border: 1px dashed $active-color;
