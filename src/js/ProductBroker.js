@@ -1,6 +1,7 @@
 function ProductBroker(cxt, productsData)
 {
   var that = this
+    , dialog = new Dialog(cxt.getContext())
     ;
   that.currentActiveProduct = null;
   that.currentActiveProductBroker = null;
@@ -84,6 +85,15 @@ function ProductBroker(cxt, productsData)
   }
 
   function initEvents() {
+    //cxt.getButtonContext("product").click(function(){
+    //  dialog.showDesign();
+    //});
+    cxt.getButtonContext("design").click(function(){
+      dialog.showDesign();
+    });
+    cxt.getButtonContext("image").click(function(){
+      dialog.showImage();
+    });
     cxt.getButtonContext("text").click(function(){
       that.createNewElement("Text Element");
     });

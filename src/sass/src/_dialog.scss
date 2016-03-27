@@ -1,0 +1,127 @@
+@import "../vars";
+
+.ui-dialog {
+  box-shadow: $box-shadow;
+
+  .box-list {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    li {
+      width: 128px;
+      height: 128px;
+      margin: 8px;
+      display: inline-block;
+
+      &.loading {
+        width: 100%;
+        height: auto;
+        margin: 16px 0;
+        text-align: center;
+      }
+
+      &.more {
+        width: 100%;
+        height: auto;
+        margin: 8px 0;
+        padding: 8px 0;
+        border: 1px solid $tool-background-color;
+        transition: all 0.3s ease-in-out;
+        color: $main-color;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+          border-color: $main-color;
+          color: $main-color*2/3;
+        }
+      }
+
+      &.box {
+        border: 2px solid $tool-background-color;
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: $box-shadow;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        background: url($pattern-img-url);
+
+        &.active {
+          border-color: $main-color;
+          color: $main-color;
+        }
+
+        &:hover {
+          border-color: $main-color;
+        }
+
+        img {
+          position: absolute;
+          display: block;
+          height: 100%;
+        }
+      }
+
+      &.upload-box {
+        border: 2px dashed $tool-background-color;
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: $box-shadow;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+          border-color: $main-color;
+          color: $main-color;
+        }
+        input[type="file"] {
+          position: absolute;
+          top: -100px;
+        }
+
+        em {
+          color: $tool-border-color;
+          font-size: 72px;
+          margin: 28px 0;
+        }
+
+      }
+
+      &.loading-box {
+        border: 2px solid $tool-background-color;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: $box-shadow;
+        text-align: center;
+        position: relative;
+        background: none;
+        cursor: auto;
+        img {
+          margin: 60px 0;
+          width: 90%;
+          height: auto;
+          display: inline;
+          position: relative;
+        }
+      }
+
+      .text {
+        text-align: center;
+        transition: color 0.3s ease-in-out;
+        &:hover {
+          color: $main-color;
+        }
+      }
+
+    }
+
+  }
+}
+
+

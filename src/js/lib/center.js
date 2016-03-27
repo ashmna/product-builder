@@ -3,7 +3,7 @@
   $.fn.verticalCenter = function () {
     this.css({
       'top': "50%",
-      'margin-top': this.outerHeight() / -2
+      'margin-top': this.outerWidth() / -2
     });
   };
 
