@@ -50,17 +50,13 @@ function FixTextPanel()
       el.select();
     });
 
-    el.keydown(handler);
-    el.keypress(handler);
-    el.change(handler);
-    el.keyup(handler);
-
-    function handler(event) {
+    el.on('keyup keypress blur change', function (event) {
       // TODO: improve
       if (elementObj) {
         elementObj.setText(this.value);
       }
-    }
+    });
+
   }
 
   // Call Constructor
