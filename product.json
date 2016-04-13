@@ -13,7 +13,7 @@
         {
           "position": {
             "x"      : 35,
-            "y"      : 200,
+            "y"      : 90,
             "width"  : 280,
             "height" : 110,
             "angle"  : 0
@@ -25,6 +25,23 @@
             "font-family" : "'Shadows Into Light', cursive",
             "font-size"   : "28px",
             "color"       : "#000"
+          }
+        },
+        {
+          "position": {
+            "x"      : 35,
+            "y"      : 150,
+            "width"  : 300,
+            "height" : 300,
+            "angle"  : 0
+          },
+          "type": "Fix Text2",
+          "params": {
+            "points"      : "99.2,177.2,130.02,60.0,300.5,276.2,300.7,176.2",
+            "title"       : "Title",
+            "text"        : "Hello, World!",
+            "font-size"   : "28px",
+            "color"       : "black"
           }
         }
       ]

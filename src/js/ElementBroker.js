@@ -69,11 +69,16 @@ function ElementBroker(context, board, borders, elements) {
   function elementFactory(type, position, params) {
     var id = ++Context.idCounter + '_element';
     var elementInstance = null;
+    var panelToolInstance = null;
 
     switch (type) {
       case "Fix Text" :
         elementInstance = new FixTextElement(id, that, borders, position, params);
-        var panelToolInstance = new FixTextPanel(id, that, params);
+        panelToolInstance = new FixTextPanel(id, that, params);
+        break;
+      case "Fix Text2" :
+        elementInstance = new FixTextElement2(id, that, borders, position, params);
+        panelToolInstance = new FixTextPanel(id, that, params);
         break;
       case "Text" :
         elementInstance = new TextElement(id, that, borders, position, params);

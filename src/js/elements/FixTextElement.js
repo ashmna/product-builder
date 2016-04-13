@@ -27,7 +27,7 @@ function FixTextElement()
   };
 
   that.getText = function() {
-    return that.params["text"];
+    return that.params.text;
   };
 
   // Private Methods

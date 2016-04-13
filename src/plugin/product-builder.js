@@ -5,6 +5,7 @@
 
   //=include ../js/PubSub.js
   //=include ../js/Effects.js
+  //=include ../js/Dialog.js
   //=include ../js/Context.js
   //=include ../js/ElementBroker.js
   //=include ../js/ProductBroker.js
