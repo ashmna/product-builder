@@ -38,8 +38,6 @@ function FixTextElement2()
   // Private Methods
 
   function initPoints() {
-    //TODO: this is for test remove after testing.
-    that.params.points = "99.2,177.2,130.02,60.0,300.5,276.2,300.7,176.2";
     if(that.params.points) {
       points = that.params.points.split(',');
     }
